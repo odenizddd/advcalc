@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
+#include "alt_main.h"
 #include <string.h>
 #include <ctype.h>
 
@@ -97,10 +98,10 @@ int main(){
     Variable variables;
 	char line[257] = "";     // This will be the input line.
     // Creation of two stacks.  
-	ourStack *operatorStack = (ourStack *)malloc(sizeof(ourStack));	//stack is impelemented using array and char pointers are put into the operator stack
-	createEmptyStack(operatorStack);								//function creating the stack
-	ourStack *postStack = (ourStack *)malloc(sizeof(ourStack));		//popstack is used when the expression turn into postfix expression.
-    createEmptyStack(postStack);									//function creating the stack
+	stack *operatorStack = (stack *)malloc(sizeof(stack));	//stack is impelemented using array and char pointers are put into the operator stack
+	createEmptyStack(operatorStack);						//function creating the stack
+	stack *postStack = (stack *)malloc(sizeof(stack));		//popstack is used when the expression turn into postfix expression.
+    createEmptyStack(postStack);							//function creating the stack
     
 	char *destination;												//char pointer array which is used in the isDigit if block.
 	char *destLetter;												//char pointer array which is used in the isLetter if block.
@@ -306,7 +307,7 @@ int main(){
 						break;
 					}
 					typeCheck = TOKEN_TYPE_R_PARANTHESIS; 		// Current type becomes a right parenthesis.			
-					while (*peekStack(operatorStack) != '('){	// popStack until left parenthesis.
+					while (peekStack(operatorStack) != '('){	// popStack until left parenthesis.
 						if (isEmptyStack(operatorStack)){
 							printf("Error!> ");      // Stack cannot be empty, paranthesis error!
 							isError = true;
