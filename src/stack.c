@@ -37,7 +37,8 @@ void traverse(stack *p){                  // This function traverses and prints 
         int i;
         printf("Stack Elements are : ");
         for(i=0; i <= p->top; i++){
-            printf("%c\n", *(p->input_arr[i]));
+            print_token(p->input_arr[i]);
+            //printf("%c\n", *(p->input_arr[i]));
         }
     }
 }

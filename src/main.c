@@ -2,6 +2,9 @@
 #include <string.h>
 #include "map.h"
 #include "eval.h"
+#include "stack.h"
+#include "token_type.h"
+#include "vec_token.h"
 
 int error = 0;
 map* m;
@@ -29,8 +32,16 @@ int main() {
         error = 0;
     } */
     
-    char* source = "3+4*5";
-    vec_token* tokens = tokenize(source);
+    token* token1 = create_token_ptr(PLUS, "+");
+    token* token2 = create_token_ptr(STAR, "*");
+    token* token3 = create_token_ptr(LITERAL, "123");
+
+    vec_token* tokens = create_vec_token_ptr(4);
+    push_vec_token(tokens, token1);
+    push_vec_token(tokens, token2);
+    push_vec_token(tokens, token3);
+    print_vec_token(tokens);
+    set_token_at(tokens, 1, token1);
     print_vec_token(tokens);
 
     return 0;

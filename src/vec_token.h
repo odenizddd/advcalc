@@ -40,5 +40,7 @@ vec_token* create_vec_token_ptr(int max_count);
 vec_token* slice_vec_token(vec_token* tokens, int start, int end);
 void push_vec_token(vec_token* dynamic_array, token* new_token);
 void print_vec_token(vec_token* dynamic_array);
+token* get_token_at(vec_token* dynamic_array, int index);
+void set_token_at(vec_token* dynamic_array, int index, token* new_token);
 
 #endif

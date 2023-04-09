@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "vec_token.h": "c",
+        "stdbool.h": "c"
+    }
+}

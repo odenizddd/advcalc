@@ -65,3 +65,11 @@ void print_vec_token(vec_token* dynamic_array) {
         printf("\n");
     }
 }
+
+token* get_token_at(vec_token* dynamic_array, int index) {
+    return dynamic_array->data + index;
+}
+
+void set_token_at(vec_token* dynamic_array, int index, token* new_token) {
+    *(dynamic_array->data + index) = *new_token;
+}
